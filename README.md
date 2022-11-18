@@ -1,16 +1,12 @@
 # assignment2
 
-A new Flutter project.
+A new Flutter project with widgets.
 
-## Getting Started
+## Components of App
 
-This project is a starting point for a Flutter application.
+This Flutter mobile application contains a layout page of the Oeschinen Lake Campground in
+Switzerland and a description of the place. It also has ratings shown, as well as three buttons:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Call - makes a phone call to the location through your device 
+* Route - takes you to the Google Maps app and displays the route from your location to the campground 
+* Share - allows you to share the directions with someone else through email, text, etc.
