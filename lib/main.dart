@@ -4,6 +4,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:map_launcher/map_launcher.dart';
+import 'package:share_plus/share_plus.dart';
 
 void main() {
   runApp(
@@ -106,7 +108,25 @@ class MyApp extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, color: color),
+        GestureDetector(
+          onTap: () async {
+            if (icon == Icons.call) {
+              await FlutterPhoneDirectCaller.callNumber("123456789");
+            }
+            else if (icon == Icons.near_me) {
+              await MapLauncher.showMarker(
+                mapType: MapType.google,
+                coords: Coords(46.5007, 7.7142),
+                title: "Oeschinen Lake Campground",
+                description: "Kandersteg, Switzerland",
+              );
+            }
+            else if (icon == Icons.share) {
+              Share.share("https://www.google.com/maps/dir//46.5007,7.7142/@46.5005556,7.6448153,12z/data=!4m2!4m1!3e0");
+            }
+          },
+          child: Icon(icon, color: color),
+        ),
         Container(
           margin: const EdgeInsets.only(top: 8),
           child: Text(
@@ -117,6 +137,7 @@ class MyApp extends StatelessWidget {
               color: color,
             ),
           ),
+
         ),
       ],
     );
