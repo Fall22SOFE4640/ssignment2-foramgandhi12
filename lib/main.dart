@@ -110,10 +110,11 @@ class MyApp extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () async {
-            if (icon == Icons.call) {
-              await FlutterPhoneDirectCaller.callNumber("123456789");
+            if (icon == Icons.call) {  // call the number
+              const number = "1234567890";
+              await FlutterPhoneDirectCaller.callNumber(number);
             }
-            else if (icon == Icons.near_me) {
+            else if (icon == Icons.near_me) {  // launch Google Maps
               await MapLauncher.showMarker(
                 mapType: MapType.google,
                 coords: Coords(46.5007, 7.7142),
@@ -121,8 +122,8 @@ class MyApp extends StatelessWidget {
                 description: "Kandersteg, Switzerland",
               );
             }
-            else if (icon == Icons.share) {
-              Share.share("https://www.google.com/maps/dir//46.5007,7.7142/@46.5005556,7.6448153,12z/data=!4m2!4m1!3e0");
+            else if (icon == Icons.share) {  // provide share options
+              Share.share("Oeschinen Lake Campground\nKandersteg, Switzerland\n(123) 456-7890\nhttps://www.google.com/maps/dir//46.5007,7.7142/@46.5005556,7.6448153,12z/data=!4m2!4m1!3e0", subject: "Oeschinen Lake Campground");
             }
           },
           child: Icon(icon, color: color),
